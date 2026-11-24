@@ -3,7 +3,7 @@
             --grad-color-1: #ee7752;
             --grad-color-2: #e73c7e;
             --grad-color-3: #13a7dd;
-            --grad-color-4: #020645;
+            --grad-color-4: #01053b;
 
             --color-text-on-grad: #ffffff;
             --color-link-highlight: rgba(255, 255, 255, 0.15);
@@ -237,3 +237,15 @@
                 animation: none;
             }
         }
+
+
+
+        
+
+            .navbar__logo {
+    height: 52px;
+    width: auto;
+    max-width: 240px;
+    object-fit: contain;
+    display: block;
+}
