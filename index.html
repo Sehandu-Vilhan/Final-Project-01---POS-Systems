@@ -5,41 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ThreadLine</title>
     <link rel="stylesheet" href="cssfile.css">
-
-
-
-
 </head>
 
 <body>
     <header class="navbar">
         <div class="navbar__container">
-            <a href="#" class="navbar__brand">
-            <img src="img/logo .png" alt="ThreadLine Logo" class="navbar__logo">
-
-
-
+            <a href="#" class="navbar__brand" aria-label="ThreadLine home">
+                <img src="img/logo.png" alt="ThreadLine" class="navbar__logo">
             </a>
 
-
-
-
-
-
-
-
-<!--                 
-                <span>ThreadLine</span> -->
-            </a>
- 
-
-
-            
             <button class="navbar__toggle" id="navbarToggle" aria-label="Toggle navigation" aria-controls="navbarMenu" aria-expanded="false">
                 <span class="bar"></span><span class="bar"></span><span class="bar"></span>
             </button>
-            
-            <nav id="navbarMenu" class="navbar__menu" role="navigation" aria-labelledby="navbarToggle">
+
+            <nav id="navbarMenu" class="navbar__menu" aria-label="Main navigation">
                 <ul class="navbar__list">
                     <li class="navbar__item"><a href="#" class="navbar__link">Home</a></li>
                     <li class="navbar__item"><a href="#" class="navbar__link">Products</a></li>
@@ -52,7 +31,6 @@
         </div>
     </header>
 
-
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const navbarToggle = document.getElementById('navbarToggle');
@@ -62,27 +40,12 @@
                 navbarToggle.addEventListener('click', function () {
                     navbarToggle.classList.toggle('is-active');
                     navbarMenu.classList.toggle('is-active');
-                    
+
                     const isExpanded = navbarMenu.classList.contains('is-active');
                     navbarToggle.setAttribute('aria-expanded', isExpanded);
                 });
             }
         });
     </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
 </body>
 </html>
-
-
