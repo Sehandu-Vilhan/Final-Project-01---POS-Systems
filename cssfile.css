@@ -278,7 +278,7 @@
 .product-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);   /* 5 cards in one row */
-    gap: 1.5rem;
+    gap: 2.5rem;
     align-content: start;
 }
 
