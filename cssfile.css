@@ -249,3 +249,239 @@
     object-fit: contain;
     display: block;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/* ================= SHOP LAYOUT ================= */
+.shop {
+    display: grid;
+    grid-template-columns: 220px 1fr;   /* left = filters space, right = cards */
+    gap: 1.5rem;
+    padding: 2rem 1.5rem;
+    background: #f5f5f5;
+    min-height: calc(100vh - var(--navbar-height));
+}
+
+.shop__filters {
+    /* empty for now: put your categories and filters here later */
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);   /* 5 cards in one row */
+    gap: 1.5rem;
+    align-content: start;
+}
+
+/* ================= PRODUCT CARD ================= */
+.card {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    background: #ffffff;
+    border: 1px solid #e2e2e2;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    transition: all 0.4s;
+    cursor: pointer;
+    font-size: 0;            /* hides the back text until hover */
+}
+
+.card:hover,
+.card:focus-visible {
+    transform: scale(1.05);
+    border-radius: 15px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    outline: none;
+}
+
+/* Front: your clothes image */
+.first-content {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    transition: all 0.4s;
+}
+
+.first-content img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card:hover .first-content,
+.card:focus-visible .first-content {
+    height: 0;
+    opacity: 0;
+}
+
+/* Back: name, price, description */
+.second-content {
+    width: 100%;
+    height: 0;
+    opacity: 0;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    text-align: left;
+    overflow: hidden;
+    transition: all 0.4s;
+    transform: rotate(90deg) scale(-1);
+}
+
+.card:hover .second-content,
+.card:focus-visible .second-content {
+    height: 100%;
+    opacity: 1;
+    font-size: 1rem;
+    transform: rotate(0deg) scale(1);
+}
+
+.second-content h3 {
+    margin: 0;
+    font-size: 1.15em;
+    font-weight: 600;
+}
+
+.card__price {
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.card__desc {
+    margin: 0;
+    font-size: 0.9em;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1200px) {
+    .product-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 900px) {
+    .product-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .shop { grid-template-columns: 1fr; }
+    .shop__filters { display: none; }   /* show it again when you build filters */
+}
+
+
+
+
+
+
+
+
+
+/* ================= PRODUCT CARD ================= */
+.card {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border: 1px solid #e2e2e2;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    color: inherit;
+}
+
+.card:hover,
+.card:focus-visible {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+    outline: none;
+}
+
+/* Image area: both photos stacked on top of each other */
+.card__media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    background: #eee;
+    overflow: hidden;
+}
+
+.card__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.4s ease;
+}
+
+/* second photo is hidden until hover */
+.card__img--hover {
+    opacity: 0;
+}
+
+.card:hover .card__img--hover,
+.card:focus-visible .card__img--hover {
+    opacity: 1;
+}
+
+.card:hover .card__img--main,
+.card:focus-visible .card__img--main {
+    opacity: 0;
+}
+
+/* Details: always visible under the photo */
+.card__body {
+    padding: 0.9rem 1rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.card__title {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.card__price {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.card__desc {
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #555;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1200px) {
+    .product-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 900px) {
+    .product-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .shop { grid-template-columns: 1fr; }
+    .shop__filters { display: none; }
+}
